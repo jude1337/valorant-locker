@@ -1,0 +1,155 @@
+{
+  "player": {
+    "riot_id": "Val jds#1337",
+    "title": "β",
+    "player_card_name": "100 Thieves VCT25 Player Card",
+    "rank_peak": "Silver 1",
+    "account": {
+      "level": 31,
+      "vp": 1612,
+      "radianite": 20,
+      "kc": 2669
+    },
+    "flex": [
+      "Champions 2025 Trophy",
+      "SharkX",
+      ":D",
+      "Stat-Com"
+    ]
+  },
+  "skins": {
+    "Melee": [
+      "Xenohunter",
+      "5 Years // Beta Remastered Knife",
+      "Atlas // CMD Baton (BP)",
+      "Celestial Fan",
+      "Champions 2025 Butterfly Knife",
+      "Equilibrium",
+      "Onimaru Kunitsuna",
+      "RGX 11Z Pro Karambit",
+      "Smite Knife",
+      "SplashX Gloves"
+    ],
+    "Classic": [
+      "Spectrum Classic",
+      "Atlas // CMD Classic (BP)",
+      "Prime Classic",
+      "VCT25 X 100T Classic"
+    ],
+    "Shorty": [
+      "Perch Shorty (BP)"
+    ],
+    "Frenzy": [
+      "Glitchpop Frenzy",
+      "Haloform Frenzy (BP)"
+    ],
+    "Ghost": [
+      "Evori Dreamwings Ghost",
+      "Belaflaire Ghost (BP)",
+      "Sovereign Ghost",
+      "Xerofang Ghost"
+    ],
+    "Sheriff": [
+      "Reaver Sheriff",
+      "Space Piercer Sheriff (BP)"
+    ],
+    "Stinger": [
+      "X"
+    ],
+    "Spectre": [
+      "Evori Dreamwings Spectre",
+      "Atlas // CMD Spectre (BP)",
+      "Belaflaire Spectre (BP)"
+    ],
+    "Bucky": [
+      "Prime Bucky",
+      "Belaflaire Bucky (BP)"
+    ],
+    "Judge": [
+      "Smite Judge",
+      "Interhelm Judge (BP)",
+      "Space Piercer Judge (BP)"
+    ],
+    "Bulldog": [
+      "Perch Bulldog (BP)"
+    ],
+    "Guardian": [
+      "Spectrum Guardian",
+      "Space Piercer Guardian (BP)"
+    ],
+    "Phantom": [
+      "Oni Phantom",
+      "Interhelm Phantom (BP)",
+      "Perch Phantom (BP)",
+      "Recon Phantom",
+      "Ruination Phantom"
+    ],
+    "Vandal": [
+      "Champions 2025 Vandal",
+      "Atlas // CMD Vandal (BP)",
+      "Cryostasis Vandal",
+      "Ion Vandal",
+      "Prime Vandal",
+      "Smite Vandal",
+      "SplashX Vandal"
+    ],
+    "Marshall": [
+      "Perch Marshall (BP)"
+    ],
+    "Outlaw": [
+      "Smite Outlaw",
+      "Atlas // CMD Outlaw (BP)"
+    ],
+    "Operator": [
+      "Ion Operator",
+      "SplashX Operator",
+      "Valiant Hero Operator"
+    ],
+    "Ares": [
+      "Space Piercer Ares (BP)",
+      "Haloform Ares (BP)"
+    ],
+    "Odin": [
+      "Prime//2.0 Odin"
+    ]
+  },
+  "flex_images": {
+    "Champions 2025 Trophy": "assets/flex/Champions_2025_Trophy.jpg",
+    "SharkX": "assets/flex/SharkX.jpg",
+    ":D": "assets/flex/_D.jpg",
+    "Stat-Com": "assets/flex/Stat-Com.jpg"
+  },
+  "agents": {
+    "unlocked": [
+      "Brimstone",
+      "Chamber",
+      "Clove",
+      "Fade",
+      "Iso",
+      "Jett",
+      "Neon",
+      "Phoenix",
+      "Raze",
+      "Reyna",
+      "Sage",
+      "Skye",
+      "Sova",
+      "Waylay",
+      "Yoru"
+    ],
+    "locked": [
+      "Astra",
+      "Breach",
+      "Cypher",
+      "Deadlock",
+      "Gekko",
+      "Harbor",
+      "Kay/O",
+      "Killjoy",
+      "Omen",
+      "Tejo",
+      "Viper",
+      "Vyse"
+    ]
+  }
+}
