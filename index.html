@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>jds — Valorant Locker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#ff4655">
+<style>
+:root{--v-red:#ff4655;--v-dark:#0f1214;--v-mid:#14181d;--v-text:#e6e8ea;--v-mute:#9aa3ab;--card:#0d1114cc;--glass:rgba(13,17,20,.7);--border:rgba(255,255,255,.08);}
+*{box-sizing:border-box}html,body{height:100%}body{margin:0;background:var(--v-dark);color:var(--v-text);font-family:'Rajdhani',system-ui,sans-serif;line-height:1.4;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
+.bg .grid{position:absolute;inset:-200px;background:radial-gradient(ellipse at top left, rgba(255,70,85,.05), transparent 35%),radial-gradient(ellipse at bottom right, rgba(0,150,255,.05), transparent 35%),linear-gradient(transparent 98%, rgba(255,255,255,.06) 100%),linear-gradient(90deg, transparent 98%, rgba(255,255,255,.06) 100%);background-size:100% 100%,100% 100%,60px 60px,60px 60px;animation:pan 40s linear infinite;filter:saturate(1.1)}
+@keyframes pan{from{transform:translate3d(0,0,0)}to{transform:translate3d(-200px,-200px,0)}}
+.shard{position:absolute;width:50vmax;height:50vmax;transform:skewY(-12deg) rotate(15deg);background:radial-gradient(circle at 30% 30%, rgba(255,70,85,.12), transparent 60%);filter:blur(20px);mix-blend-mode:screen;animation:float 16s ease-in-out infinite}
+.s1{top:-10vmax;left:-20vmax}.s2{bottom:-20vmax;right:-30vmax;animation-duration:20s}.s3{top:20vmax;right:-25vmax;animation-duration:24s}
+@keyframes float{50%{transform: translateY(-20px) skewY(-12deg) rotate(15deg)}}
+.site-header{position:sticky;top:0;z-index:10;backdrop-filter: blur(8px);background:linear-gradient(to bottom, rgba(0,0,0,.45), transparent);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:16px 24px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Teko',sans-serif;font-size:28px;letter-spacing:.5px}
+.logo{width:26px}.cc{color:var(--v-red)}.path{color:var(--v-mute);font-size:.85em;margin-left:6px}
+nav a{color:var(--v-mute);text-decoration:none;margin:0 10px;position:relative}
+nav a::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:var(--v-red);transition:width .25s}
+nav a:hover{color:var(--v-text)}nav a:hover::after{width:100%}
+.panel{max-width:1200px;margin:40px auto;padding:24px;border:1px solid var(--border);background:var(--glass);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
+.panel h2{font-family:'Teko',sans-serif;font-size:36px;letter-spacing:.5px;margin:0 0 12px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+.hero h1{font-family:'Teko',sans-serif;font-size:64px;margin:0;line-height:1}
+.subtitle{color:var(--v-mute);margin:.25rem 0 1rem}
+.stats{display:flex;gap:12px;flex-wrap:wrap}
+.stat{padding:10px 14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.03)}
+.stat .label{display:block;color:var(--v-mute);font-size:12px;text-transform:uppercase;letter-spacing:.1em}
+.stat .value{font-family:'Teko',sans-serif;font-size:28px}
+.card-frame{position:relative;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.01))}
+.card-frame img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;filter:contrast(1.05) saturate(1.02)}
+.card-frame::before,.card-frame::after{content:'';position:absolute;inset:0;pointer-events:none;border-radius:16px}
+.card-frame::before{border:1px solid rgba(255,70,85,.3);mix-blend-mode:overlay;opacity:.5}
+.card-frame::after{background: linear-gradient(180deg, transparent 70%, rgba(0,0,0,.35));}
+.card-caption{position:absolute;bottom:0;left:0;right:0;padding:10px 12px;font-weight:600;background:linear-gradient(180deg, transparent, rgba(0,0,0,.55))}
+.skins-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.skin-card{border:1px solid var(--border);border-radius:14px;background:var(--card);padding:14px;position:relative;overflow:hidden;transition:transform .2s ease, box-shadow .2s ease}
+.skin-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.45)}
+.skin-card .head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.skin-card .head h3{margin:0;font-family:'Teko',sans-serif;font-size:28px}
+.tag{font-size:12px;color:var(--v-mute);padding:4px 8px;border:1px solid var(--border);border-radius:999px}
+.skin-list{margin:0;padding-left:18px}.skin-list li{margin:4px 0}.skin-list li::marker{color:var(--v-red)}
+.flex-list{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.flex-list li{border:1px solid var(--border);background:var(--card);padding:10px 12px;border-radius:10px}
+.site-footer{max-width:1200px;margin:20px auto 60px;padding:0 24px;color:var(--v-mute)}
+@media (max-width:900px){.hero{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="bg"><div class="grid"></div><div class="shard s1"></div><div class="shard s2"></div><div class="shard s3"></div></div>
+<header class="site-header">
+  <div class="brand">
+    <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="#ff4655" d="M3 17V4l6 8 6-8v13l-6-8z"/></svg>
+    <span class="brand-text">7udas<span class="cc">.cc</span><span class="path">/jds1337</span></span>
+  </div>
+  <nav><a href="#overview">Overview</a><a href="#skins">Skins</a><a href="#flex">Flex</a></nav>
+</header>
+<main>
+  <section id="overview" class="panel hero">
+    <div class="hero-left">
+      <h1><span id="riotId"></span></h1>
+      <p class="subtitle"><span id="title"></span> • Peak: <span id="rank"></span></p>
+      <div class="stats">
+        <div class="stat"><span class="label">Level</span><span id="lvl" class="value"></span></div>
+        <div class="stat"><span class="label">VP</span><span id="vp" class="value"></span></div>
+        <div class="stat"><span class="label">Radianite</span><span id="rad" class="value"></span></div>
+        <div class="stat"><span class="label">KC</span><span id="kc" class="value"></span></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="card-frame">
+        <img id="playerCard" alt="Player Card" src="./assets/player-card.jpg" />
+        <div class="card-caption"><span id="playerCardName"></span></div>
+      </div>
+    </div>
+  </section>
+  <section id="skins" class="panel">
+    <h2>Locker</h2>
+    <div id="skinsGrid" class="skins-grid"></div>
+  </section>
+  <section id="flex" class="panel">
+    <h2>Flex</h2>
+    <ul id="flexList" class="flex-list"></ul>
+  </section>
+</main>
+<footer class="site-footer"><span>Made with &lt;3 by jds • Valorant Locker</span></footer>
+<script>
+const DATA = {"player": {"riot_id": "jds#1337", "title": "β", "player_card_name": "VCT25 X 100T Card", "rank_peak": "Silver 1", "account": {"level": 31, "vp": 1612, "radianite": 20, "kc": 2669}, "flex": ["Champions 2025 Trophy", "SharkX", ":D", "Stat-Com"]}, "skins": {"Melee": ["Xenohunter", "5 Years // Beta Remastered Knife", "Atlas // CMD Baton (BP)", "Celestial Fan", "Champions 2025 Butterfly Knife", "Equilibrium", "Onimaru Kunitsuna", "RGX 11Z Pro Karambit", "Smite Knife", "SplashX Gloves"], "Classic": ["Spectrum Classic", "Atlas // CMD Classic (BP)", "Prime Classic", "VCT25 X 100T Classic"], "Shorty": ["Perch Shorty (BP)"], "Frenzy": ["Glitchpop Frenzy", "Haloform Frenzy (BP)"], "Ghost": ["Evori Dreamwings Ghost", "Belaflaire Ghost (BP)", "Sovereign Ghost", "Xerofang Ghost"], "Sheriff": ["Reaver Sheriff", "Space Piercer Sheriff (BP)"], "Stinger": ["X"], "Spectre": ["Evori Dreamwings Spectre", "Atlas // CMD Spectre (BP)", "Belaflaire Spectre (BP)"], "Bucky": ["Prime Bucky", "Belaflaire Bucky (BP)"], "Judge": ["Smite Judge", "Interhelm Judge (BP)", "Space Piercer Judge (BP)"], "Bulldog": ["Perch Bulldog (BP)"], "Guardian": ["Spectrum Guardian", "Space Piercer Guardian (BP)"], "Phantom": ["Oni Phantom", "Interhelm Phantom (BP)", "Perch Phantom (BP)", "Recon Phantom", "Ruination Phantom"], "Vandal": ["Champions 2025 Vandal", "Atlas // CMD Vandal (BP)", "Cryostasis Vandal", "Ion Vandal", "Prime Vandal", "Smite Vandal", "SplashX Vandal"], "Marshall": ["Perch Marshall (BP)"], "Outlaw": ["Smite Outlaw", "Atlas // CMD Outlaw (BP)"], "Operator": ["Ion Operator", "SplashX Operator", "Valiant Hero Operator"], "Ares": ["Space Piercer Ares (BP)", "Haloform Ares (BP)"], "Odin": ["Prime//2.0 Odin"]}};
+function render(){
+  const d = DATA;
+  document.getElementById('riotId').textContent = d.player.riot_id;
+  document.getElementById('title').textContent = d.player.title;
+  document.getElementById('rank').textContent = d.player.rank_peak;
+  document.getElementById('lvl').textContent = d.player.account.level;
+  document.getElementById('vp').textContent = d.player.account.vp;
+  document.getElementById('rad').textContent = d.player.account.radianite;
+  document.getElementById('kc').textContent = d.player.account.kc;
+  document.getElementById('playerCardName').textContent = d.player.player_card_name;
+  const grid = document.getElementById('skinsGrid');
+  const entries = Object.entries(d.skins||{});
+  if(entries.length===0){
+    const empty=document.createElement('p');empty.textContent='No skins found.';empty.style.color='#9aa3ab';grid.parentElement.appendChild(empty);
+  } else {
+    entries.forEach(([weapon,list])=>{
+      const card=document.createElement('article');card.className='skin-card';
+      card.innerHTML=`<div class="head"><h3>${weapon}</h3><span class="tag">${list.length} item${list.length!==1?'s':''}</span></div><ul class="skin-list">${list.map(i=>'<li>'+i+'</li>').join('')}</ul>`;
+      grid.appendChild(card);
+    });
+  }
+  const flex=document.getElementById('flexList');
+  (d.player.flex||[]).forEach(f=>{const li=document.createElement('li');li.textContent=f;flex.appendChild(li);});
+  if((d.player.flex||[]).length===0){const note=document.createElement('p');note.textContent='No flex items found.';note.style.color='#9aa3ab';document.getElementById('flex').appendChild(note);}
+}
+render();
+</script>
+</body>
+</html>
